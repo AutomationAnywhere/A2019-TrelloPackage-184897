@@ -1,0 +1,1043 @@
+{
+    "name": "Trello",
+    "label": "Trello",
+    "description": "Provides actions to integrate with Trello",
+    "group": "com.automationanywhere",
+    "artifactName": "Trello",
+    "packageVersion": "1.0.0-20200916-101135",
+    "codeVersion": "1.0.0-20200916-101135",
+    "commands": [
+        {
+            "name": "Add Attachment to Card",
+            "label": "Add Attachment to Card",
+            "description": "Attaches a file to a card",
+            "nodeLabel": "Add Attachment to Card {{card}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.AddAttachmentCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign attachment ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the attached file",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "card",
+                    "label": "Card Name",
+                    "description": "Name of the card to add attachment",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "nameGroup",
+                    "label": "Attachment Details",
+                    "type": "GROUP",
+                    "attributes": [
+                        {
+                            "name": "file",
+                            "label": "File to attach",
+                            "type": "FILE",
+                            "rules": [
+                                {
+                                    "name": "NOT_EMPTY"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "name",
+                            "label": "Name of Attachment",
+                            "type": "TEXT"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Add Comment to Card",
+            "label": "Add Comment to Card",
+            "description": "Adds a comment to a card",
+            "nodeLabel": "Add Comment to Card {{card}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.AddCommentCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign comment ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the comment",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "card",
+                    "label": "Card Name",
+                    "description": "Name of the card to add comment",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "comment",
+                    "label": "Comment",
+                    "description": "Text to include in comment",
+                    "type": "TEXTAREA",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Add label to card",
+            "label": "Add Label",
+            "description": "Adds label to card",
+            "nodeLabel": "Add label {{label}} to card {{card}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.AddLabelCardCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "card",
+                    "label": "Card Name",
+                    "description": "Name of card to which the label will be added",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "label",
+                    "label": "Label Name",
+                    "description": "Name of the label to add",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Manage Members on Board or Team",
+            "label": "Manage Members",
+            "description": "Manage members on board or team in Trello",
+            "nodeLabel": "{{manage}} members to {{type}} {{name}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.AddMembersCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "manage",
+                    "label": "Action",
+                    "type": "RADIO",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Add",
+                            "value": "PUT"
+                        },
+                        {
+                            "label": "Remove",
+                            "value": "DELETE"
+                        }
+                    ]
+                },
+                {
+                    "name": "type",
+                    "label": "Members to or from",
+                    "type": "RADIO",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Team",
+                            "value": "organizations"
+                        },
+                        {
+                            "label": "Board",
+                            "value": "boards"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "label": "Board or Team Name",
+                    "description": "e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "members",
+                    "label": "Member User Names",
+                    "description": "e.g. bobsmith11 - multiple user names must be separated by commas",
+                    "type": "TEXTAREA",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Create Board",
+            "label": "Create Board",
+            "description": "Creates a new board in Trello",
+            "nodeLabel": "Create Board {{name}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.CreateBoardCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign board ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the newly created board",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "nameGroup",
+                    "label": "Board Details",
+                    "type": "GROUP",
+                    "attributes": [
+                        {
+                            "name": "name",
+                            "label": "Board Name",
+                            "description": "e.g. My New Board",
+                            "type": "TEXT",
+                            "rules": [
+                                {
+                                    "name": "NOT_EMPTY"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "description",
+                            "label": "Board Description",
+                            "type": "TEXTAREA"
+                        }
+                    ]
+                },
+                {
+                    "name": "idOrganization",
+                    "label": "Team",
+                    "description": "Name of the team the board should belong to",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "background",
+                    "label": "Background Color",
+                    "description": "default color is blue",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "blue",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Blue",
+                            "value": "blue"
+                        },
+                        {
+                            "label": "Red",
+                            "value": "red"
+                        },
+                        {
+                            "label": "Pink",
+                            "value": "pink"
+                        },
+                        {
+                            "label": "Orange",
+                            "value": "orange"
+                        },
+                        {
+                            "label": "Green",
+                            "value": "green"
+                        },
+                        {
+                            "label": "Purple",
+                            "value": "purple"
+                        }
+                    ]
+                },
+                {
+                    "name": "permission",
+                    "label": "Permission Level",
+                    "description": "Default is private",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "private",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Organization/Team",
+                            "value": "org"
+                        },
+                        {
+                            "label": "Private",
+                            "value": "private"
+                        },
+                        {
+                            "label": "Public",
+                            "value": "public"
+                        }
+                    ]
+                },
+                {
+                    "name": "voting",
+                    "label": "Voting",
+                    "description": "Specifies who has permission to vote on cards - default is disabled. Cannot exceed permission level set above",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "disabled",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Disabled",
+                            "value": "disabled"
+                        },
+                        {
+                            "label": "Members",
+                            "value": "members"
+                        },
+                        {
+                            "label": "Observers",
+                            "value": "observers"
+                        },
+                        {
+                            "label": "Organization",
+                            "value": "org"
+                        },
+                        {
+                            "label": "Public",
+                            "value": "public"
+                        }
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "label": "Comments",
+                    "description": "Specifies who has permission to comment - default is members",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "members",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Disabled",
+                            "value": "disabled"
+                        },
+                        {
+                            "label": "Members",
+                            "value": "members"
+                        },
+                        {
+                            "label": "Observers",
+                            "value": "observers"
+                        },
+                        {
+                            "label": "Organization",
+                            "value": "org"
+                        },
+                        {
+                            "label": "Public",
+                            "value": "public"
+                        }
+                    ]
+                },
+                {
+                    "name": "invitations",
+                    "label": "Invitations",
+                    "description": "Specifies who has permission to invite other users - default is members",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "members",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Admins",
+                            "value": "admins"
+                        },
+                        {
+                            "label": "Members",
+                            "value": "members"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Create Card",
+            "label": "Create Card",
+            "description": "Creates a new card on a list",
+            "nodeLabel": "Create Card {{name}} on list {{list}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.CreateCardCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign card ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the newly created list",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "list",
+                    "label": "List Name",
+                    "description": "Name of the list the card should be added to",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "nameGroup",
+                    "label": "Card Details",
+                    "type": "GROUP",
+                    "attributes": [
+                        {
+                            "name": "name",
+                            "label": "Card Name",
+                            "description": "e.g. My First Card",
+                            "type": "TEXT",
+                            "rules": [
+                                {
+                                    "name": "NOT_EMPTY"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "description",
+                            "label": "Card Description",
+                            "description": "This text shows up in the main description section at top of card",
+                            "type": "TEXTAREA"
+                        }
+                    ]
+                },
+                {
+                    "name": "pos",
+                    "label": "Position",
+                    "description": "Default is top",
+                    "type": "RADIO",
+                    "defaultValue": {
+                        "string": "top",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Top",
+                            "value": "top"
+                        },
+                        {
+                            "label": "Bottom",
+                            "value": "bottom"
+                        }
+                    ]
+                },
+                {
+                    "name": "due",
+                    "label": "Due Date",
+                    "description": "e.g. mm/dd/yyyy",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        {
+            "name": "Create Label on Board",
+            "label": "Create Label",
+            "description": "Creates label on board",
+            "nodeLabel": "Create label {{label}} on board {{board}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.CreateLabelCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign label ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the label",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "label",
+                    "label": "Label Name",
+                    "description": "Name of the label to add",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "color",
+                    "label": "Label Color",
+                    "description": "Default color is blue",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "blue",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Blue",
+                            "value": "blue"
+                        },
+                        {
+                            "label": "Red",
+                            "value": "red"
+                        },
+                        {
+                            "label": "Pink",
+                            "value": "pink"
+                        },
+                        {
+                            "label": "Orange",
+                            "value": "orange"
+                        },
+                        {
+                            "label": "Green",
+                            "value": "green"
+                        },
+                        {
+                            "label": "Purple",
+                            "value": "purple"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Create List",
+            "label": "Create List",
+            "description": "Creates a new list in Trello",
+            "nodeLabel": "Create List {{name}} on board {{board}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.CreateListCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign list ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the newly created list",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "Name of the board the list should be added to",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "label": "List Name",
+                    "description": "e.g. To Do Items",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Create Team",
+            "label": "Create Team",
+            "description": "Creates a new team in Trello",
+            "nodeLabel": "Create team {{name}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.CreateTeamCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Assign team ID to a String",
+            "returnRequired": false,
+            "returnDescription": "Outputs the ID of the newly created team",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "nameGroup",
+                    "label": "Team Details",
+                    "type": "GROUP",
+                    "attributes": [
+                        {
+                            "name": "name",
+                            "label": "Team Name",
+                            "description": "e.g. My New Team",
+                            "type": "TEXT",
+                            "rules": [
+                                {
+                                    "name": "NOT_EMPTY"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "description",
+                            "label": "Team Description",
+                            "type": "TEXTAREA"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Delete Board",
+            "label": "Delete Board",
+            "description": "Deletes a board in Trello",
+            "nodeLabel": "Delete Board in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.DeleteBoardCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "label": "Board Name",
+                    "description": "e.g. My Team Board. Note: You must have permissions to delete board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Delete Card",
+            "label": "Delete Card",
+            "description": "Deletes a card in Trello",
+            "nodeLabel": "Delete Card {{name}} on board {{board}} in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.DeleteCardCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "board",
+                    "label": "Board Name",
+                    "description": "The board name on which the card resides. e.g. My Team Board",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "label": "Card Name",
+                    "description": "e.g. Coding Project Activities",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Delete Team",
+            "label": "Delete Team",
+            "description": "Deletes a team in Trello",
+            "nodeLabel": "Delete Team in session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.DeleteTeamCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "label": "Team Name",
+                    "description": "e.g. My Team Board. Note: You must have permissions to delete team",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "End Session",
+            "label": "End Session",
+            "description": "Session End",
+            "nodeLabel": "End Session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.EndSessionCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Start Session",
+            "label": "Start Session",
+            "description": "Enter API Key and Token for Trello Account",
+            "nodeLabel": "Start Session {{sessionName}}",
+            "mainClass": "com.automationanywhere.commands.Trello.StartSessionCommand",
+            "icon": "trello.svg",
+            "textColor": "#7B848B",
+            "backgroundColor": "#a6a6a6",
+            "comment": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "key",
+                    "label": "API Key",
+                    "type": "CREDENTIAL",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "token",
+                    "label": "Account Token",
+                    "type": "CREDENTIAL",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

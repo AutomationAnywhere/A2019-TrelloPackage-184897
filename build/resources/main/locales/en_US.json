@@ -1,0 +1,8 @@
+{
+  "hello.label": "say hi to someone",
+  "hello.nodelabel": "hi",
+  "hello.description": "saying hi",
+  "label" : "Trello",
+  "action2.label": "Trello",
+  "description" : "Provides actions for integrating with Trello"
+}
