@@ -36,8 +36,8 @@ public class MiscTests {
         String board = "AP Invoice Coding Process";
         String card = "Postman new card";
         String labelname = "projects";
-        String apiKey = "b92d7c697cbecd0bf6684f6a413c37ea";
-        String token = "d8b3c387fc2c0620a8ff165a423e4fccdfa3e0f7b7d148f6af90658ce0d3fc22";
+        String apiKey = "";
+        String token = "";
 
 
         //labelname = URLEncoder.encode(labelname, StandardCharsets.UTF_8);
